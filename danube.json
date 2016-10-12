@@ -1,0 +1,12 @@
+{
+	"settings" : {
+		"Name" : "Danube",
+		"Script" : "danube.js",
+		"Description" : "Players start situated on the banks of the Danube. It is autumn, huntable animals abound on the shore and on the islands of the great river, but watch out for large packs of wolves prowling about.",
+		"BaseTerrain" : ["temp_grass_aut", "temp_grass_plants_aut", "temp_grass_c_aut", "temp_grass_d_aut", "temp_highlands_aut"],
+		"BaseHeight" : 4,
+		"Keywords": [],
+		"CircularMap" : false,
+		"Preview" : "danube.png"
+	}
+}

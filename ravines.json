@@ -1,0 +1,11 @@
+{
+  "settings" : {
+    "Name" : "Ravines",
+    "Script" : "ravines.js",
+    "Description" : "Tightly packed bluffs surround the players, making other players only accessible by narrow ravines which can be easily controlled from the bluffs above. Watch out for enemies planning to seperate you from your allies!",
+    "BaseTerrain" : ["medit_sea_depths"],
+    "BaseHeight" : 0,
+	    "Preview" : "ravines.png",
+    "CircularMap" : true
+  }
+}
