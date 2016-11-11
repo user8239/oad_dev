@@ -1,0 +1,11 @@
+{
+	"settings" : {
+		"Name" : "Strips2",
+		"Script" : "stripsrandom.js",
+		"Description" : "Players start on narrow stips of land.",
+		"BaseTerrain" : ["medit_sea_depths"],
+		"BaseHeight" : 1,
+		"Preview" : "",
+		"CircularMap" : true
+	}
+}
