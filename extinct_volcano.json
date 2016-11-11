@@ -1,0 +1,11 @@
+{
+	"settings" : {
+		"Name" : "Extinct Volcano",
+		"Script" : "extinct_volcano.js",
+		"Description" : "A charred dead land where players start around a smoking volcano.",
+		"BaseTerrain" : "ocean_rock_a",
+		"BaseHeight" : 1,
+		"CircularMap" : true,
+		"Preview" : "volcanic_lands.png"
+	}
+}
