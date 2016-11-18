@@ -1,6 +1,6 @@
 {
 	"settings" : {
-		"Name" : "Strips2",
+		"Name" : "Strips-random",
 		"Script" : "stripsrandom.js",
 		"Description" : "Players start on narrow stips of land.",
 		"BaseTerrain" : ["medit_sea_depths"],
