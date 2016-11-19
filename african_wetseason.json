@@ -1,0 +1,11 @@
+{
+	"settings" : {
+		"Name" : "African Wetseason",
+		"Script" : "african_wetseason.js",
+		"Description" : "Africa during the wetseason, a land which was arid and inhospitable just weeks before has come to life totally transformed. Herds of zebras graze amid the tall, lush grasses in which lions lie waiting, while in the shallow pools lurk fearsome crocodiles.",
+		"BaseTerrain" : ["savanna_grass_b_wetseason"],
+		"BaseHeight" : 3,
+		"CircularMap" : true,
+		"Preview" : " "
+	}
+}
