@@ -37,7 +37,7 @@ RMS.LoadLibrary("rmgen");
 	var oStoneLarge = "gaia/geology_stonemine_alpine_quarry";
 	var oStoneSmall = "gaia/geology_stone_alpine_a";
 	var oMetalLarge = "gaia/geology_metal_alpine_slabs";
-	const oWood = "gaia/special_treasure_wood";
+	var oWood = "gaia/special_treasure_wood";
 	
 	// decorative props
 	var aRockLarge = "actor|geology/stone_granite_med.xml";
@@ -130,7 +130,9 @@ for (var i = 0; i < numPlayers; i++)
 	createArea(placer, painter, null);
 	
 	// create starting units
-	placeCivDefaultEntities(fx, fz, id, BUILDING_ANGlE);
+	placeCivDefaultEntities(fx, fz, id);
+
+	placeDefaultChicken(fx, fz, clBaseResource);
 	
 	// create animals
 	for (var j = 0; j < 2; ++j)
