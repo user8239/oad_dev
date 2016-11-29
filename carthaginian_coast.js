@@ -15,19 +15,16 @@ const tRocksGrass = "medit_rocks_grass";
 const tDirt = "medit_dirt_b";
 const tDirtB = "medit_dirt_c";
 const tShore = "medit_sand";
+const tShoreBlend = "medit_sand_messy";
 const tWater = "medit_sand_wet";
 
 // gaia entities
 const oGrapeBush = "gaia/flora_bush_grapes";
-const oGazelle = "gaia/fauna_gazelle";
-const oLion = "gaia/fauna_lion";
-const oLioness = "gaia/fauna_lioness";
+const oDeer = "gaia/fauna_deer";
 const oElephant = "gaia/fauna_elephant_north_african"
 const oFish = "gaia/fauna_fish";
 const oSheep = "gaia/fauna_sheep";
 const oGoat = "gaia/fauna_goat";
-const oWhale = "gaia/fauna_whale_fin";
-const oShark = "gaia/fauna_shark"; 
 const oStoneLarge = "gaia/geology_stonemine_medit_quarry";
 const oStoneSmall = "gaia/geology_stone_mediterranean";
 const oMetalLarge = "gaia/geology_metal_mediterranean_slabs";
@@ -37,8 +34,6 @@ const oCarob = "gaia/flora_tree_carob";
 const oFanPalm = "gaia/flora_tree_medit_fan_palm";
 const oPoplar = "gaia/flora_tree_poplar_lombardy";
 const oCypress = "gaia/flora_tree_cypress";
-const oShipwreck = "other/special_treasure_shipwreck";
-const oShipDebris = "other/special_treasure_shipwreck_debris";
 
 // decorative props
 const aBush1 = "actor|props/flora/bush_medit_sm.xml";
@@ -74,7 +69,6 @@ var clBaseResource = createTileClass();
 var clSettlement = createTileClass();
 var clGrass = createTileClass();
 var clHill = createTileClass();
-var clLand = createTileClass();
 
 // randomize player order
 var playerIDs = [];
@@ -93,7 +87,7 @@ var playerPos = new Array(numPlayers);
 for (var i = 0; i < numPlayers; i++)
 {
 	playerPos[i] = (i + 1) / (numPlayers + 1);
-	playerX[i] = 0.65 + 0.2*(i%2)
+	playerX[i] = 0.55 + 0.1*(i%2)
 	playerZ[i] = playerPos[i];
 }
 
@@ -127,7 +121,9 @@ for (var i = 0; i < numPlayers; i++)
 	
 	// create starting units
 	placeCivDefaultEntities(fx, fz, id);
-	
+
+	placeDefaultChicken(fx, fz, clBaseResource);
+
 	// create animals
 	for (var j = 0; j < 2; ++j)
 	{
@@ -253,22 +249,28 @@ for (var ix = 0; ix < mapSize; ix++)
 	}
 }
 
-// create terrain(using method of false shore)
-log("Creating terrain...");
-for (var i = 0; i < scaleByMapSize(15,120); i++)
+// create shore
+log("Creating shores...");
+for (var i = 0; i < scaleByMapSize(20,120); i++)
 {
-	placer = new ChainPlacer(1, floor(scaleByMapSize(4, 9)), floor(scaleByMapSize(16, 45)), 1, floor(randFloat(0.1,0.2)*mapSize), floor(randFloat(0.2,0.8)*mapSize));
+	placer = new ChainPlacer(1, floor(scaleByMapSize(4, 6)), floor(scaleByMapSize(16, 30)), 1, floor(randFloat(0.20,0.32)*mapSize), floor(randFloat(0.1,0.9)*mapSize));
 	var terrainPainter = new LayeredPainter(
-		[tGrass, tGrass],		// terrains
+		[tGrass, tShore],		// terrains
 		[2]								// widths
 	);
 	var elevationPainter = new SmoothElevationPainter(ELEVATION_SET, 3, 3);
 	createArea(
 		placer,
-		[terrainPainter, elevationPainter, unPaintClass(clWater)], 
+		[terrainPainter, elevationPainter, unPaintClass(clWater)],
 		null
 	);
 }
+
+paintTerrainBasedOnHeight(-6, 1, 1, tWater);
+paintTerrainBasedOnHeight(1, 2.8, 1, tShoreBlend);
+paintTerrainBasedOnHeight(0, 1, 1, tShore);
+paintTileClassBasedOnHeight(-6, 0.5, 1, clWater);
+
 RMS.SetProgress(40);
 // create bumps
 log("Creating bumps...");
@@ -292,7 +294,7 @@ var elevationPainter = new SmoothElevationPainter(ELEVATION_SET, 15, 2);
 createAreas(
 	placer,
 	[terrainPainter, elevationPainter, paintClass(clHill)], 
-	avoidClasses(clPlayer, 14, clForest, 1, clHill, 8, clWater, 1),
+	avoidClasses(clPlayer, 20, clForest, 1, clHill, 12, clWater, 1),
 	scaleByMapSize(1, 4) * numPlayers * 3
 );
 
@@ -425,7 +427,7 @@ createObjectGroups(group, 0,
 );
 
 // create sheep
-log("Creating sheep...");
+log("Creating sheeps...");
 group = new SimpleGroup([new SimpleObject(oSheep, 5,7, 0,4)], true, clFood);
 createObjectGroups(group, 0,
 	avoidClasses(clPlayer, 7, clWater, 3, clFood, 10, clHill, 1),
@@ -440,23 +442,12 @@ createObjectGroups(group, 0,
 	scaleByMapSize(5,20), 50
 );
 
-// create gazelles
-log("Creating gazelles...");
-group = new SimpleGroup([new SimpleObject(oGazelle, 2,4, 0,2)], true, clFood);
+// create deer
+log("Creating deers...");
+group = new SimpleGroup([new SimpleObject(oDeer, 2,4, 0,2)], true, clFood);
 createObjectGroups(group, 0,
 	avoidClasses(clPlayer, 7, clWater, 3, clFood, 10, clHill, 1),
 	scaleByMapSize(5,20), 50
-);
-
-// create lions
-log("Creating barbary lions...");
-group = new SimpleGroup(
-	[new SimpleObject(oLion, 0,1, 0,4), new SimpleObject(oLioness, 2,3, 0,4)],
-	true, clFood
-);
-createObjectGroups(group, 0,
-	avoidClasses(clWater, 1, clPlayer, 20, clFood, 11),
-	scaleByMapSize(4,12), 50
 );
 
 // create elephants
@@ -465,38 +456,6 @@ group = new SimpleGroup([new SimpleObject(oElephant, 1,2, 0,2)], true, clFood);
 createObjectGroups(group, 0,
 	avoidClasses(clPlayer, 12, clWater, 2, clFood, 8, clHill, 1),
 	scaleByMapSize(5,20), 50
-);
-
-log("Creating Sharks...");
-// create Sharks
-group = new SimpleGroup([new SimpleObject(oShark, 1,1, 0,3)], true, clFood);
-createObjectGroups(group, 0,
-	[stayClasses(clWater,1),avoidClasses(clFood, 8, clPlayer, 4)],
-	scaleByMapSize(10,40), 100
-);
-
-log("Creating Whales...");
-// create Whales
-group = new SimpleGroup([new SimpleObject(oWhale, 1,1, 0,3)], true, clFood);
-createObjectGroups(group, 0,
-	[stayClasses(clWater,1),avoidClasses(clFood, 8, clPlayer, 4)],
-	scaleByMapSize(10,40), 100
-);
-
-log("Creating shipwrecks...");
-// create shipwreck
-group = new SimpleGroup([new SimpleObject(oShipwreck, 1,1, 0,3)], true, clFood);
-createObjectGroups(group, 0,
-	[stayClasses(clWater,1),avoidClasses(clFood, 8)],
-	scaleByMapSize(6,16), 100
-);
-
-log("Creating shipwreck debris...");
-// create shipwreck debris
-group = new SimpleGroup([new SimpleObject(oShipDebris, 1,2, 0,4)], true, clFood);
-createObjectGroups(group, 0,
-	[stayClasses(clWater,1),avoidClasses(clFood, 8)],
-	scaleByMapSize(10,20), 100
 );
 
 // create grape bushes
