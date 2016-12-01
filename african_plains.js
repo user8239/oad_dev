@@ -265,7 +265,7 @@ var elevationPainter = new SmoothElevationPainter(ELEVATION_SET, -5, 7);
 createAreas(
 	placer,
 	[terrainPainter, elevationPainter, paintClass(clWater)],
-	avoidClasses(clPlayer, 22, clWater, 8),
+	avoidClasses(clPlayer, 22, clWater, 8, clHill, 2),
 	scaleByMapSize(2, 5)
 );
 
@@ -280,7 +280,7 @@ createBumps(avoidClasses(clWater, 2, clPlayer, 20));
 // create forests
 createForests(
  [tPrimary, tForestFloor, tForestFloor, pForest, pForest],
- avoidClasses(clPlayer, 20, clForest, 17, clHill, 0, clWater, 2), 
+ avoidClasses(clPlayer, 20, clForest, 19, clHill, 2, clWater, 2), 
  clForest,
  1.0
 );
@@ -357,7 +357,7 @@ group = new SimpleGroup(
 	true, clFood
 );
 createObjectGroups(group, 0,
-	avoidClasses(clWater, 1, clPlayer, 20, clFood, 11),
+	avoidClasses(clWater, 1, clPlayer, 20, clFood, 11, clHill, 4),
 	scaleByMapSize(4,12), 50
 );
 
@@ -368,7 +368,7 @@ group = new SimpleGroup(
 	true, clFood
 );
 createObjectGroups(group, 0,
-	avoidClasses(clWater, 1, clPlayer, 20, clFood, 11),
+	avoidClasses(clWater, 1, clPlayer, 20, clFood, 11, clHill, 4),
 	scaleByMapSize(4,12), 50
 );
 
@@ -379,7 +379,7 @@ group = new SimpleGroup(
 	true, clFood
 );
 createObjectGroups(group, 0,
-	avoidClasses(clWater, 1, clPlayer, 20, clFood, 11),
+	avoidClasses(clWater, 1, clPlayer, 20, clFood, 11, clHill, 4),
 	scaleByMapSize(4,12), 50
 );
 
