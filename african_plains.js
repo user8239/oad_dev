@@ -280,7 +280,7 @@ createBumps(avoidClasses(clWater, 2, clPlayer, 20));
 // create forests
 createForests(
  [tPrimary, tForestFloor, tForestFloor, pForest, pForest],
- avoidClasses(clPlayer, 20, clForest, 19, clHill, 2, clWater, 2), 
+ avoidClasses(clPlayer, 20, clForest, 22, clHill, 2, clWater, 2), 
  clForest,
  1.0
 );
@@ -450,7 +450,7 @@ RMS.SetProgress(85);
 
 // create straggler trees
 var types = [oBaobab];
-createStragglerTrees(types, avoidClasses(clWater, 5, clForest, 1, clHill, 1, clPlayer, 12, clMetal, 1, clRock, 1));
+createStragglerTrees(types, avoidClasses(clWater, 5, clForest, 2, clHill, 1, clPlayer, 12, clMetal, 1, clRock, 1));
 
 setSkySet("sunny");
 setSunRotation(randFloat(0, TWO_PI));
