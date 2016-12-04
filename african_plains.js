@@ -1,55 +1,52 @@
 RMS.LoadLibrary("rmgen");
 RMS.LoadLibrary("rmgen2");
 
-{
-	setFogThickness(0.36);
-	setFogFactor(0.4);
+setFogThickness(0.36);
+setFogFactor(0.4);
 
-	setPPEffect("hdr");
-	setPPSaturation(0.48);
-	setPPContrast(0.53);
-	setPPBloom(0.12);
+setPPEffect("hdr");
+setPPSaturation(0.48);
+setPPContrast(0.53);
+setPPBloom(0.12);
 
-	var tPrimary = ["savanna_grass_a"];
-	var tForestFloor = "savanna_forestfloor_a";
-	var tCliff = ["savanna_cliff_a", "savanna_cliff_a_red", "savanna_cliff_b", "savanna_cliff_b_red"];
-	var tSecondary = "savanna_grass_b";
-	var tGrassShrubs = ["savanna_shrubs_a"];
-	var tGrass = ["savanna_grass_a_wetseason", "savanna_grass_b_wetseason"];
-	var tDirt = "savanna_dirt_a";
-	var tDirt2 = "savanna_dirt_a_red";
-	var tDirt3 = "savanna_dirt_b";
-	var tDirt4 = "savanna_dirt_rocks_a";
-	var tCitytiles = "savanna_tile_a";
-	var tShore = "savanna_riparian_bank";
-	var tWater = "savanna_riparian_wet";
+var tPrimary = ["savanna_grass_a"];
+var tForestFloor = "savanna_forestfloor_a";
+var tCliff = ["savanna_cliff_a", "savanna_cliff_a_red", "savanna_cliff_b", "savanna_cliff_b_red"];
+var tSecondary = "savanna_grass_b";
+var tGrassShrubs = ["savanna_shrubs_a"];
+var tGrass = ["savanna_grass_a_wetseason", "savanna_grass_b_wetseason"];
+var tDirt = "savanna_dirt_a";
+var tDirt2 = "savanna_dirt_a_red";
+var tDirt3 = "savanna_dirt_b";
+var tDirt4 = "savanna_dirt_rocks_a";
+var tCitytiles = "savanna_tile_a";
+var tShore = "savanna_riparian_bank";
+var tWater = "savanna_riparian_wet";
 
-	// gaia entities
-	var oBaobab = "gaia/flora_tree_baobab";
-	var oPalm = "gaia/flora_tree_senegal_date_palm";
-	var oBerryBush = "gaia/flora_bush_berry";
-	var oChicken = "gaia/fauna_chicken";
-	var oWildebeest = "gaia/fauna_wildebeest";
-	var oZebra = "gaia/fauna_zebra";
-	var oRhino = "gaia/fauna_rhino";
-	var oLion = "gaia/fauna_lion";
-	var oLioness = "gaia/fauna_lioness";
-	var oHawk = "gaia/fauna_hawk";
-	var oGiraffe = "gaia/fauna_giraffe";
-	var oGiraffe2 = "gaia/fauna_giraffe_infant";
-	var oGazelle = "gaia/fauna_gazelle";
-	var oElephant = "gaia/fauna_elephant_african_bush";
-	var oElephant2 = "gaia/fauna_elephant_african_infant";
-	var oCrocodile = "gaia/fauna_crocodile";
-	var oFish = "gaia/fauna_fish";
-	var oStoneSmall = "gaia/geology_stone_savanna_small";
-	var oMetalLarge = "gaia/geology_metal_savanna_slabs";
-	
-	// decorative props
-	var aBush = "actor|props/flora/bush_medit_sm_dry.xml";
-	var aRock = "actor|geology/stone_savanna_med.xml";
+// gaia entities
+var oBaobab = "gaia/flora_tree_baobab";
+var oPalm = "gaia/flora_tree_senegal_date_palm";
+var oBerryBush = "gaia/flora_bush_berry";
+var oChicken = "gaia/fauna_chicken";
+var oWildebeest = "gaia/fauna_wildebeest";
+var oZebra = "gaia/fauna_zebra";
+var oRhino = "gaia/fauna_rhino";
+var oLion = "gaia/fauna_lion";
+var oLioness = "gaia/fauna_lioness";
+var oHawk = "gaia/fauna_hawk";
+var oGiraffe = "gaia/fauna_giraffe";
+var oGiraffe2 = "gaia/fauna_giraffe_infant";
+var oGazelle = "gaia/fauna_gazelle";
+var oElephant = "gaia/fauna_elephant_african_bush";
+var oElephant2 = "gaia/fauna_elephant_african_infant";
+var oCrocodile = "gaia/fauna_crocodile";
+var oFish = "gaia/fauna_fish";
+var oStoneSmall = "gaia/geology_stone_savanna_small";
+var oMetalLarge = "gaia/geology_metal_savanna_slabs";
 
-}
+// decorative props
+var aBush = "actor|props/flora/bush_medit_sm_dry.xml";
+var aRock = "actor|geology/stone_savanna_med.xml";
 
 //other constants
 const pForest = [tForestFloor + TERRAIN_SEPARATOR + oPalm, tForestFloor];

@@ -1,49 +1,46 @@
 RMS.LoadLibrary("rmgen");
 
+setFogThickness(0.46);
+setFogFactor(0.5);
 
-{
-	setFogThickness(0.46);
-	setFogFactor(0.5);
+setPPEffect("hdr");
+setPPSaturation(0.48);
+setPPContrast(0.53);
+setPPBloom(0.12);
 
-	setPPEffect("hdr");
-	setPPSaturation(0.48);
-	setPPContrast(0.53);
-	setPPBloom(0.12);
+var tPrimary = ["alpine_grass_rocky"];
+var tForestFloor = "alpine_grass";
+var tCliff = ["polar_cliff_a", "polar_cliff_b", "polar_cliff_snow"];
+var tSecondary = "alpine_grass";
+var tHalfSnow = ["polar_grass_snow", "ice_dirt"];
+var tSnowLimited = ["polar_snow_rocks", "polar_ice"];
+var tDirt = "ice_dirt";
+var tShore = "alpine_shore_rocks";
+var tWater = "polar_ice_b";
+var tHill = "polar_ice_cracked";
 
-	var tPrimary = ["alpine_grass_rocky"];
-	var tForestFloor = "alpine_grass";
-	var tCliff = ["polar_cliff_a", "polar_cliff_b", "polar_cliff_snow"];
-	var tSecondary = "alpine_grass";
-	var tHalfSnow = ["polar_grass_snow", "ice_dirt"];
-	var tSnowLimited = ["polar_snow_rocks", "polar_ice"];
-	var tDirt = "ice_dirt";
-	var tShore = "alpine_shore_rocks";
-	var tWater = "polar_ice_b";
-	var tHill = "polar_ice_cracked";
+// gaia entities
+var oBush = "gaia/flora_bush_badlands";
+var oBush2 = "gaia/flora_bush_temperate";
+var oBerryBush = "gaia/flora_bush_berry";
+var oChicken = "gaia/fauna_chicken";
+var oRabbit = "gaia/fauna_rabbit";
+var oMuskox = "gaia/fauna_muskox";
+var oDeer = "gaia/fauna_deer";
+var oWalrus = "gaia/fauna_walrus";
+var oWolf = "gaia/fauna_wolf";
+var oWhaleFin = "gaia/fauna_whale_fin";
+var oWhaleHumpback = "gaia/fauna_whale_humpback";
+var oFish = "gaia/fauna_fish";
+var oStoneLarge = "gaia/geology_stonemine_alpine_quarry";
+var oStoneSmall = "gaia/geology_stone_alpine_a";
+var oMetalLarge = "gaia/geology_metal_alpine_slabs";
+var oWood = "gaia/special_treasure_wood";
 
-	// gaia entities
-	var oBush = "gaia/flora_bush_badlands";
-	var oBush2 = "gaia/flora_bush_temperate";
-	var oBerryBush = "gaia/flora_bush_berry";
-	var oChicken = "gaia/fauna_chicken";
-	var oRabbit = "gaia/fauna_rabbit";
-	var oMuskox = "gaia/fauna_muskox";
-	var oDeer = "gaia/fauna_deer";
-	var oWalrus = "gaia/fauna_walrus";
-	var oWolf = "gaia/fauna_wolf";
-	var oWhaleFin = "gaia/fauna_whale_fin";
-	var oWhaleHumpback = "gaia/fauna_whale_humpback";
-	var oFish = "gaia/fauna_fish";
-	var oStoneLarge = "gaia/geology_stonemine_alpine_quarry";
-	var oStoneSmall = "gaia/geology_stone_alpine_a";
-	var oMetalLarge = "gaia/geology_metal_alpine_slabs";
-	var oWood = "gaia/special_treasure_wood";
-	
-	// decorative props
-	var aRockLarge = "actor|geology/stone_granite_med.xml";
-	var aRockMedium = "actor|geology/stone_granite_med.xml";
-	var aIceberg = "actor|props/special/eyecandy/iceberg.xml";
-}
+// decorative props
+var aRockLarge = "actor|geology/stone_granite_med.xml";
+var aRockMedium = "actor|geology/stone_granite_med.xml";
+var aIceberg = "actor|props/special/eyecandy/iceberg.xml";
 
 //other constants
 const pForest = [tForestFloor + TERRAIN_SEPARATOR + oBush, tForestFloor + TERRAIN_SEPARATOR + oBush2, tForestFloor];
