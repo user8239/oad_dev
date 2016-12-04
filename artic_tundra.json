@@ -6,6 +6,7 @@
 		"BaseTerrain" : ["medit_sea_depths"],
 		"BaseHeight" : 2,
 		"Preview" : "artic_tundra.png",
+		"Keywords": ["new"],
 		"CircularMap" : true
 	}
 }

@@ -5,6 +5,7 @@
 		"Description" : "A barren map without trees or bushes, while in the sea fish and whales abound.",
 		"BaseTerrain" : ["medit_sea_depths"],
 		"BaseHeight" : 2,
+		"Keywords": ["new"],
 		"Preview" : "polar_sea.png",
 		"CircularMap" : true
 	}
