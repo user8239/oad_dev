@@ -255,7 +255,7 @@ createMines(
 		[new SimpleObject(oStoneSmall, 0,2, 0,4)],
 		[new SimpleObject(oStoneSmall, 2,5, 1,3)]
 	],
-	avoidClasses(clWater, 3, clForest, 1, clPlayer, 20, clRock, 10, clHill, 1)
+	avoidClasses(clWater, 4, clForest, 4, clPlayer, 20, clRock, 10, clHill, 4)
 );
 
 log("Creating metal mines...");
@@ -263,7 +263,7 @@ createMines(
 	[
 		[new SimpleObject(oMetalLarge, 1,1, 0,4)]
 	],
-	avoidClasses(clWater, 3, clForest, 1, clPlayer, 20, clMetal, 18, clRock, 5, clHill, 1),
+	avoidClasses(clWater, 4, clForest, 4, clPlayer, 20, clMetal, 18, clRock, 5, clHill, 4),
 	clMetal
 );
 RMS.SetProgress(70);
@@ -287,7 +287,7 @@ group = new SimpleGroup(
 	true, clFood
 );
 createObjectGroups(group, 0,
-	avoidClasses(clWater, 1, clPlayer, 20, clFood, 11, clHill, 4),
+	avoidClasses(clWater, 3, clPlayer, 20, clFood, 11, clHill, 4),
 	scaleByMapSize(4,12), 50
 );
 
@@ -297,7 +297,7 @@ group = new SimpleGroup(
 	true, clFood
 );
 createObjectGroups(group, 0,
-	avoidClasses(clWater, 1, clPlayer, 20, clFood, 11, clHill, 4),
+	avoidClasses(clWater, 3, clPlayer, 20, clFood, 11, clHill, 4),
 	scaleByMapSize(4,12), 50
 );
 
@@ -307,7 +307,7 @@ group = new SimpleGroup(
 	true, clFood
 );
 createObjectGroups(group, 0,
-	avoidClasses(clWater, 1, clPlayer, 20, clFood, 11, clHill, 4),
+	avoidClasses(clWater, 3, clPlayer, 20, clFood, 11, clHill, 4),
 	scaleByMapSize(4,12), 50
 );
 
@@ -346,7 +346,7 @@ createFood(
 	[
 		randInt(1, 4) * numPlayers + 2
 	],
-	avoidClasses(clWater, 3, clForest, 0, clPlayer, 20, clHill, 1, clFood, 10)
+	avoidClasses(clWater, 3, clForest, 2, clPlayer, 20, clHill, 3, clFood, 10)
 );
 
 createFood(
@@ -362,7 +362,7 @@ RMS.SetProgress(85);
 
 createStragglerTrees(
 	[oBaobab],
-	avoidClasses(clWater, 5, clForest, 2, clHill, 1, clPlayer, 12, clMetal, 1, clRock, 1)
+	avoidClasses(clWater, 5, clForest, 2, clHill, 3, clPlayer, 12, clMetal, 4, clRock, 4)
 );
 
 setSkySet("sunny");
