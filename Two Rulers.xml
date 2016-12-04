@@ -39,32 +39,33 @@
 	</Camera>
 	<ScriptSettings><![CDATA[
 {
-  "CircularMap": true,
-  "Description": "The rulers of two islands have cast their greedy eyes on each others' lands. But their resources are scarce and to win they must secure control over the surrounding isles and islets. Who shall prove to be the master and control the seas?",
-  "GameType": "conquest",
-  "Keywords": [],
-  "LockTeams": false,
-  "Name": "Two Rulers",
-  "PlayerData": [
-    null,
-    {
-      "StartingCamera": {
-        "Position": {
-          "x": 1423.85,
-          "y": 22.3825,
-          "z": 1111.44
-        },
-        "Rotation": {
-          "x": 30,
-          "y": 0,
-          "z": 0
-        }
-      }
-    },
-    {}
-  ],
-  "Preview": "peloponnese_scenario.png",
-  "RevealMap": false
+	"CircularMap": true,
+	"Description": "The rulers of two islands have cast their greedy eyes on each others' lands. But their resources are scarce and to win they must secure control over the surrounding isles and islets. Who shall prove to be the master and control the seas?",
+	"GameType": "conquest",
+	"Keywords": [],
+	"LockTeams": false,
+	"Name": "Two Rulers",
+	"PlayerData": [
+		null,
+		{
+			"StartingCamera": {
+				"Position": {
+					"x": 1423.85,
+					"y": 22.3825,
+					"z": 1111.44
+				},
+				"Rotation": {
+					"x": 30,
+					"y": 0,
+					"z": 0
+				}
+			}
+		},
+		{
+		}
+	],
+	"Preview": "peloponnese_scenario.png",
+	"RevealMap": false
 }
 ]]></ScriptSettings>
 	<Entities>
