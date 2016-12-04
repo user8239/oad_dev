@@ -122,16 +122,16 @@ for(var i=0;i<numIslands;i++){
 	var dry = 1;
 	var gbeach = 2;
 	var elevation = 3;
-	
+
 	// get the x and z in tiles
 	var fx = fractionToTiles(islandX[i]);
 	var fz = fractionToTiles(islandZ[i]);
 	var ix = round(fx);
 	var iz = round(fz);
-	
+
 	var islandSize = PI*radius*radius;
 	var islandBottom=PI*(radius+coral)*(radius+coral);
-	
+
 	//create base
 	var placer = new ClumpPlacer(islandBottom, .7, .1, 10, ix, iz);
 	var terrainPainter = new LayeredPainter(
@@ -147,23 +147,23 @@ for(var i=0;i<numIslands;i++){
 for (var i=0; i < numIslands; i++)
 {
 	log("Creating base Island " + (i + 1) + "...");
-	
+
 	var radius = scaleByMapSize(15,40);
 	var coral=scaleByMapSize(2,5);
 	var wet = 3;
 	var dry = 1;
 	var gbeach = 2;
 	var elevation = 3;
-	
+
 	// get the x and z in tiles
 	var fx = fractionToTiles(islandX[i]);
 	var fz = fractionToTiles(islandZ[i]);
 	var ix = round(fx);
 	var iz = round(fz);
-	
+
 	var islandSize = PI*radius*radius;
 	var islandBottom=PI*(radius+coral)*(radius+coral);
-	
+
 	// create island
 	var placer = new ClumpPlacer(islandSize, .7, .1, 10, ix, iz);
 	var terrainPainter = new LayeredPainter(
@@ -176,7 +176,7 @@ for (var i=0; i < numIslands; i++)
 	    5
     );
     var temp = createArea(placer, [terrainPainter, paintClass(clPlayer), elevationPainter],avoidClasses(clPlayer,0));
-    
+
     areas.push(temp);
 
 	// create animals
@@ -193,7 +193,7 @@ for (var i=0; i < numIslands; i++)
 		);
 		createObjectGroup(group, 0);
 	}
-	
+
 	// create berry bushes
 	var bbAngle = randFloat(0, TWO_PI);
 	var bbDist = 10;
@@ -204,7 +204,7 @@ for (var i=0; i < numIslands; i++)
 		true, clBaseResource, bbX, bbZ
 	);
 	createObjectGroup(group, 0);
-	
+
 	// create metal mine
 	var mAngle = bbAngle;
 	while(abs(mAngle - bbAngle) < PI/3)
@@ -219,7 +219,7 @@ for (var i=0; i < numIslands; i++)
 		true, clBaseResource, mX, mZ
 	);
 	createObjectGroup(group, 0);
-	
+
 	// create stone mines
 	mAngle += randFloat(PI/8, PI/4);
 	mX = round(fx + mDist * cos(mAngle));
@@ -330,7 +330,7 @@ for (var i=0; i < nCenter; i++)
     var temp = createArea(placer, [terrainPainter, paintClass(clIsland), elevationPainter],avoidClasses(clPlayer,0));
 
     areas.push(temp);
-}    
+}
 RMS.SetProgress(30);
 
 // create bumps
@@ -339,7 +339,7 @@ placer = new ClumpPlacer(scaleByMapSize(20, 60), 0.3, 0.06, 1);
 painter = new SmoothElevationPainter(ELEVATION_MODIFY, 2, 3);
 createAreasInAreas(
 	placer,
-	painter, 
+	painter,
 	avoidClasses(clCity, 0),
 	scaleByMapSize(25, 75),15,
 	areas
@@ -377,7 +377,7 @@ for (var i = 0; i < types.length; ++i)
 		);
 	createAreasInAreas(
 		placer,
-		[painter, paintClass(clForest)], 
+		[painter, paintClass(clForest)],
 		avoidClasses(clCity, 1, clWater, 3, clForest, 3, clHill, 1),
 		num, 20, areas
 	);
@@ -462,7 +462,7 @@ for (var t in trees)
 log("Creating rocks...");
 // create rocks
 group = new SimpleGroup(
-	[new SimpleObject(aRockSmall, 0,3, 0,2), new SimpleObject(aRockMed, 0,2, 0,2), 
+	[new SimpleObject(aRockSmall, 0,3, 0,2), new SimpleObject(aRockMed, 0,2, 0,2),
 	new SimpleObject(aRockLarge, 0,1, 0,2)]
 );
 createObjectGroups(group, 0,
