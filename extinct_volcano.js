@@ -134,7 +134,7 @@ for (var i = 0; i < numPlayers; i++)
 		true, clBaseResource, mX, mZ
 	);
 	createObjectGroup(group, 0);
-	
+
 	// create animals
 	for (var j = 0; j < 2; ++j)
 	{
@@ -148,7 +148,7 @@ for (var i = 0; i < numPlayers; i++)
 		);
 		createObjectGroup(group, 0);
 	}
-	
+
 	// create berry bushes
 	var bbAngle = randFloat(0, TWO_PI);
 	var bbDist = 12;
@@ -401,7 +401,7 @@ RMS.SetProgress(90);
 //create decoration
 createDecoration
 (
- [[new SimpleObject(aRockMedium, 1,3, 0,1)], 
+ [[new SimpleObject(aRockMedium, 1,3, 0,1)],
   [new SimpleObject(aRockLarge, 1,2, 0,1), new SimpleObject(aRockMedium, 1,3, 0,2)],
   [new SimpleObject(aGrassShort, 1,2, 0,1, -PI/8,PI/8)],
   [new SimpleObject(aGrass, 2,4, 0,1.8, -PI/8,PI/8), new SimpleObject(aGrassShort, 3,6, 1.2,2.5, -PI/8,PI/8)],
@@ -423,7 +423,7 @@ createFood
  [
   [new SimpleObject(oRabbit, 5,7, 0,4)],
   [new SimpleObject(oDeer, 2,3, 0,2)]
- ], 
+ ],
  [
   3 * numPlayers,
   3 * numPlayers
@@ -434,7 +434,7 @@ createFood
 // create other animals
 createFood
 (
-  [new SimpleObject(oBear, 1,1, 0,2)], 
+  [new SimpleObject(oBear, 1,1, 0,2)],
  [
   3 * numPlayers
  ],
@@ -445,7 +445,7 @@ createFood
 (
  [
   [new SimpleObject(oFruitBush, 1,2, 0,4)]
- ], 
+ ],
  [
   3 * numPlayers
  ],

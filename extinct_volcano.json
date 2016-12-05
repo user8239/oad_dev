@@ -5,6 +5,7 @@
 		"Description" : "A charred dead land where players start around a smoking volcano.",
 		"BaseTerrain" : "ocean_rock_a",
 		"BaseHeight" : 1,
+		"Keywords": ["new"],
 		"CircularMap" : true,
 		"Preview" : "volcanic_lands.png"
 	}

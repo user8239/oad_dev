@@ -1,49 +1,46 @@
 RMS.LoadLibrary("rmgen");
 
+setFogThickness(0.46);
+setFogFactor(0.5);
 
-{
-	setFogThickness(0.46);
-	setFogFactor(0.5);
+setPPEffect("hdr");
+setPPSaturation(0.48);
+setPPContrast(0.53);
+setPPBloom(0.12);
 
-	setPPEffect("hdr");
-	setPPSaturation(0.48);
-	setPPContrast(0.53);
-	setPPBloom(0.12);
+var tPrimary = ["alpine_grass_rocky"];
+var tForestFloor = "alpine_grass";
+var tCliff = ["polar_cliff_a", "polar_cliff_b", "polar_cliff_snow"];
+var tSecondary = "alpine_grass";
+var tHalfSnow = ["polar_grass_snow", "ice_dirt"];
+var tSnowLimited = ["polar_snow_rocks", "polar_ice"];
+var tDirt = "ice_dirt";
+var tShore = "alpine_shore_rocks";
+var tWater = "polar_ice_b";
+var tHill = "polar_ice_cracked";
 
-	var tPrimary = ["alpine_grass_rocky"];
-	var tForestFloor = "alpine_grass";
-	var tCliff = ["polar_cliff_a", "polar_cliff_b", "polar_cliff_snow"];
-	var tSecondary = "alpine_grass";
-	var tHalfSnow = ["polar_grass_snow", "ice_dirt"];
-	var tSnowLimited = ["polar_snow_rocks", "polar_ice"];
-	var tDirt = "ice_dirt";
-	var tShore = "alpine_shore_rocks";
-	var tWater = "polar_ice_b";
-	var tHill = "polar_ice_cracked";
+// gaia entities
+var oBush = "gaia/flora_bush_badlands";
+var oBush2 = "gaia/flora_bush_temperate";
+var oBerryBush = "gaia/flora_bush_berry";
+var oChicken = "gaia/fauna_chicken";
+var oRabbit = "gaia/fauna_rabbit";
+var oMuskox = "gaia/fauna_muskox";
+var oDeer = "gaia/fauna_deer";
+var oWalrus = "gaia/fauna_walrus";
+var oWolf = "gaia/fauna_wolf";
+var oWhaleFin = "gaia/fauna_whale_fin";
+var oWhaleHumpback = "gaia/fauna_whale_humpback";
+var oFish = "gaia/fauna_fish";
+var oStoneLarge = "gaia/geology_stonemine_alpine_quarry";
+var oStoneSmall = "gaia/geology_stone_alpine_a";
+var oMetalLarge = "gaia/geology_metal_alpine_slabs";
+var oWood = "gaia/special_treasure_wood";
 
-	// gaia entities
-	var oBush = "gaia/flora_bush_badlands";
-	var oBush2 = "gaia/flora_bush_temperate";
-	var oBerryBush = "gaia/flora_bush_berry";
-	var oChicken = "gaia/fauna_chicken";
-	var oRabbit = "gaia/fauna_rabbit";
-	var oMuskox = "gaia/fauna_muskox";
-	var oDeer = "gaia/fauna_deer";
-	var oWalrus = "gaia/fauna_walrus";
-	var oWolf = "gaia/fauna_wolf";
-	var oWhaleFin = "gaia/fauna_whale_fin";
-	var oWhaleHumpback = "gaia/fauna_whale_humpback";
-	var oFish = "gaia/fauna_fish";
-	var oStoneLarge = "gaia/geology_stonemine_alpine_quarry";
-	var oStoneSmall = "gaia/geology_stone_alpine_a";
-	var oMetalLarge = "gaia/geology_metal_alpine_slabs";
-	var oWood = "gaia/special_treasure_wood";
-	
-	// decorative props
-	var aRockLarge = "actor|geology/stone_granite_med.xml";
-	var aRockMedium = "actor|geology/stone_granite_med.xml";
-	var aIceberg = "actor|props/special/eyecandy/iceberg.xml";
-}
+// decorative props
+var aRockLarge = "actor|geology/stone_granite_med.xml";
+var aRockMedium = "actor|geology/stone_granite_med.xml";
+var aIceberg = "actor|props/special/eyecandy/iceberg.xml";
 
 //other constants
 const pForest = [tForestFloor + TERRAIN_SEPARATOR + oBush, tForestFloor + TERRAIN_SEPARATOR + oBush2, tForestFloor];
@@ -106,12 +103,12 @@ for (var i = 0; i < numPlayers; i++)
 {
 	var id = playerIDs[i];
 	log("Creating base for player " + id + "...");
-	
+
 	// some constants
 	var radius = scaleByMapSize(15,25);
 	var cliffRadius = 2;
 	var elevation = 20;
-	
+
 	// get the x and z in tiles
 	var fx = fractionToTiles(playerX[i]);
 	var fz = fractionToTiles(playerZ[i]);
@@ -122,18 +119,18 @@ for (var i = 0; i < numPlayers; i++)
 	addToClass(ix, iz+5, clPlayer);
 	addToClass(ix-5, iz, clPlayer);
 	addToClass(ix, iz-5, clPlayer);
-	
+
 	// create the city patch
 	var cityRadius = radius/3;
 	var placer = new ClumpPlacer(PI*cityRadius*cityRadius, 0.6, 0.3, 10, ix, iz);
 	var painter = new LayeredPainter([tPrimary, tSecondary], [1]);
 	createArea(placer, painter, null);
-	
+
 	// create starting units
 	placeCivDefaultEntities(fx, fz, id);
 
 	placeDefaultChicken(fx, fz, clBaseResource);
-	
+
 	// create animals
 	for (var j = 0; j < 2; ++j)
 	{
@@ -147,7 +144,7 @@ for (var i = 0; i < numPlayers; i++)
 		);
 		createObjectGroup(group, 0);
 	}
-	
+
 	// create berry bushes
 	var bbAngle = randFloat(0, TWO_PI);
 	var bbDist = 12;
@@ -158,7 +155,7 @@ for (var i = 0; i < numPlayers; i++)
 		true, clBaseResource, bbX, bbZ
 	);
 	createObjectGroup(group, 0);
-	
+
 	// create metal mine
 	var mAngle = bbAngle;
 	while(abs(mAngle - bbAngle) < PI/3)
@@ -173,7 +170,7 @@ for (var i = 0; i < numPlayers; i++)
 		true, clBaseResource, mX, mZ
 	);
 	createObjectGroup(group, 0);
-	
+
 	// create stone mines
 	mAngle += randFloat(PI/8, PI/4);
 	mX = round(fx + mDist * cos(mAngle));
@@ -196,7 +193,7 @@ for (var i = 0; i < numPlayers; i++)
 		avoidClasses(clBaseResource, 2)
 	);
 	createObjectGroup(group, 0);
-};	
+};
 
 RMS.SetProgress(20);
 
@@ -226,7 +223,7 @@ for (var i = 0; i < numLakes; ++i)
 	lakeAreaLen = lakeAreas.length;
 	if (!lakeAreaLen)
 		break;
-	
+
 	chosenPoint = lakeAreas[randInt(lakeAreaLen)];
 
 	placer = new ChainPlacer(1, floor(scaleByMapSize(4, 8)), floor(scaleByMapSize(40, 180)), 0.7, chosenPoint[0], chosenPoint[1]);
@@ -237,7 +234,7 @@ for (var i = 0; i < numLakes; ++i)
 	var elevationPainter = new SmoothElevationPainter(ELEVATION_SET, -5, 5);
 	var newLake = createAreas(
 		placer,
-		[terrainPainter, elevationPainter, paintClass(clWater)], 
+		[terrainPainter, elevationPainter, paintClass(clWater)],
 		avoidClasses(clPlayer, 20),
 		1, 1
 	);
@@ -253,7 +250,7 @@ for (var i = 0; i < numLakes; ++i)
 		}
 		lakeAreas.length = n;
 	}
-	
+
 }
 
 RMS.SetProgress(45);
@@ -267,7 +264,7 @@ createBumps(avoidClasses(clWater, 2, clPlayer, 20));
 // create forests
 createForests(
  [tSecondary, tForestFloor, tForestFloor, pForest, pForest],
- avoidClasses(clPlayer, 20, clForest, 14, clHill, 20, clWater, 2), 
+ avoidClasses(clPlayer, 20, clForest, 14, clHill, 20, clWater, 2),
  clForest,
  1.0
 );
@@ -327,7 +324,7 @@ RMS.SetProgress(70);
 // create land decoration
 createDecoration
 (
- [[new SimpleObject(aRockMedium, 1,3, 0,1)], 
+ [[new SimpleObject(aRockMedium, 1,3, 0,1)],
   [new SimpleObject(aRockLarge, 1,2, 0,1), new SimpleObject(aRockMedium, 1,3, 0,1)]
  ],
  [
@@ -360,7 +357,7 @@ createFood
   [new SimpleObject(oRabbit, 6,8, 0,6)],
   [new SimpleObject(oDeer, 3,4, 0,3)],
   [new SimpleObject(oMuskox, 3,4, 0,3)]
- ], 
+ ],
  [
   3 * numPlayers,
   3 * numPlayers
@@ -374,7 +371,7 @@ createFood
  [
   [new SimpleObject(oWhaleFin, 1,2, 0,3)],
   [new SimpleObject(oWhaleHumpback, 1,2, 0,3)]
- ], 
+ ],
  [
   3 * numPlayers,
   3 * numPlayers
@@ -387,7 +384,7 @@ createFood
 (
  [
   [new SimpleObject(oBerryBush, 5,7, 0,4)]
- ], 
+ ],
  [
   randInt(1, 4) * numPlayers + 2
  ],
@@ -399,7 +396,7 @@ createFood
 (
  [
   [new SimpleObject(oFish, 2,3, 0,2)]
- ], 
+ ],
  [
   15 * numPlayers
  ],

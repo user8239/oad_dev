@@ -5,6 +5,7 @@
 		"Description" : "Players start on narrow stips of land.",
 		"BaseTerrain" : ["medit_sea_depths"],
 		"BaseHeight" : 20,
+		"Keywords": ["new"],
 		"Preview" : "",
 		"CircularMap" : true
 	}
