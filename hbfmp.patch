@@ -1,15 +1,3 @@
-Index: binaries/data/mods/public/gui/credits/texts/art.json
-===================================================================
---- binaries/data/mods/public/gui/credits/texts/art.json	(revision 19199)
-+++ binaries/data/mods/public/gui/credits/texts/art.json	(working copy)
-@@ -26,6 +26,7 @@
- 		"Title": "Map Making",
- 		"List": [
- 			{"nick": "Aeros (aka CheeZy)", "name": "Bobby Ognyanov"},
-+			{"nick": "Hannibal_Baraq", "name": "Clive Juhász S."},
- 			{"nick": "mmayfield45"},
- 			{"nick": "Mythos_Ruler", "name": "Michael D. Hafer"},
- 			{"nick": "niektb", "name": "Niek ten Brinke"},
 Index: binaries/data/mods/public/gui/credits/texts/programming.json
 ===================================================================
 --- binaries/data/mods/public/gui/credits/texts/programming.json	(revision 19199)
