@@ -124,7 +124,7 @@ for (var i = 0; i < numPlayers; i++)
 	createArea(placer, painter, null);
 
 	// create starting units
-	placeCivDefaultEntities(fx, fz, id, BUILDING_ANGlE);
+	placeCivDefaultEntities(fx, fz, id);
 
 	// create animals
 	for (var j = 0; j < 2; ++j)
@@ -183,7 +183,8 @@ for (var i = 0; i < numPlayers; i++)
 	var bbZ = round(fz + bbDist * sin(bbAngle));
 	group = new SimpleGroup(
 		[new SimpleObject(oWood, 14,14, 0,3)],
-		true, clBaseResource, bbX, bbZ
+		true, clBaseResource, bbX, bbZ,
+		avoidClasses(clBaseResource, 4)
 	);
 	createObjectGroup(group, 0);
 };
@@ -225,6 +226,31 @@ createArea(placer, [terrainPainter, elevationPainter, paintClass(clWater)], avoi
 paintTerrainBasedOnHeight(3, floor(scaleByMapSize(20, 40)), 0, tCliff);
 paintTerrainBasedOnHeight(floor(scaleByMapSize(20, 40)), 100, 3, tSnowLimited);
 
+// create more lakes
+log("Creating lakes...");
+
+var numLakes = scaleByMapSize(10, 16)
+for (var i = 0; i < numLakes ; ++i)
+{
+	lakeAreaLen = lakeAreas.length;
+	if (!lakeAreaLen)
+		break;
+
+	chosenPoint = lakeAreas[randInt(lakeAreaLen)];
+
+	placer = new ChainPlacer(1, floor(scaleByMapSize(2, 4)), floor(scaleByMapSize(20, 140)), 0.7, chosenPoint[0], chosenPoint[1]);
+	var terrainPainter = new LayeredPainter(
+		[tShore, tWater, tWater],		// terrains
+		[1, 3]								// widths
+	);
+	var elevationPainter = new SmoothElevationPainter(ELEVATION_SET, -5, 5);
+	var newLake = createAreas(
+		placer,
+		[terrainPainter, elevationPainter, paintClass(clWater)],
+		avoidClasses(clPlayer, 20),
+		1, 1
+	);
+}
 // create bumps
 createBumps(avoidClasses(clWater, 2, clPlayer, 20));
 
