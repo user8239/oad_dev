@@ -2,7 +2,7 @@
 	"settings" : {
 		"Name" : "Polar Sea",
 		"Script" : "polar_sea.js",
-		"Description" : "A barren map without trees or bushes, while in the sea fish and whales abound.",
+		"Description" : "Players start in a cold, barren polar region without trees or bushes. The land teems with deadly wolves and huntable walruses, while in the sea fish and whales abound. [color=\"red\"]Warning: Treasures MUST NOT be disabled, since there is no gatherable wood.[/color]",
 		"BaseTerrain" : ["medit_sea_depths"],
 		"BaseHeight" : 2,
 		"Keywords": ["new"],
