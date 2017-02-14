@@ -39,10 +39,8 @@ var aRockLarge = "actor|geology/stone_granite_med.xml";
 var aRockMedium = "actor|geology/stone_granite_med.xml";
 var aIceberg = "actor|props/special/eyecandy/iceberg.xml";
 
-//other constants
 const BUILDING_ANGlE = -PI/4;
 
-// initialize map
 log("Initializing map...");
 
 InitMap();
@@ -203,7 +201,7 @@ for (var x = 0; x < mapSize; ++x)
 var chosenPoint;
 var lakeAreaLen;
 
-//create the lake
+//create the main lake
 var fx = fractionToTiles(0.5);
 var fz = fractionToTiles(0.5);
 ix = round(fx);
