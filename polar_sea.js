@@ -1,5 +1,4 @@
 RMS.LoadLibrary("rmgen");
-RMS.LoadLibrary("rmgen2");
 
 setFogThickness(0.76);
 setFogFactor(0.7);
