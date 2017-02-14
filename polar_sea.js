@@ -60,9 +60,9 @@ var clSettlement = createTileClass();
 var clForest = createTileClass();
 
 //cover the ground with the primary terrain chosen in the beginning
-for (var ix = 0; ix < mapSize; ix++)
+for (var ix = 0; ix < mapSize; ++ix)
 {
-	for (var iz = 0; iz < mapSize; iz++)
+	for (var iz = 0; iz < mapSize; ++iz)
 	{
 		var x = ix / (mapSize + 1.0);
 		var z = iz / (mapSize + 1.0);
@@ -72,7 +72,7 @@ for (var ix = 0; ix < mapSize; ix++)
 
 // randomize player order
 var playerIDs = [];
-for (var i = 0; i < numPlayers; i++)
+for (var i = 0; i < numPlayers; ++i)
 {
 	playerIDs.push(i+1);
 }
@@ -84,7 +84,7 @@ var playerZ = new Array(numPlayers);
 var playerAngle = new Array(numPlayers);
 
 var startAngle = randFloat(0, TWO_PI);
-for (var i = 0; i < numPlayers; i++)
+for (var i = 0; i < numPlayers; ++i)
 {
 	playerAngle[i] = startAngle + i*TWO_PI/numPlayers;
 	playerX[i] = 0.5 + 0.35*cos(playerAngle[i]);
@@ -93,7 +93,7 @@ for (var i = 0; i < numPlayers; i++)
 
 RMS.SetProgress(20);
 
-for (var i = 0; i < numPlayers; i++)
+for (var i = 0; i < numPlayers; ++i)
 {
 	var id = playerIDs[i];
 	log("Creating base for player " + id + "...");
