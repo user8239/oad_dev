@@ -10,7 +10,7 @@
 		"CircularMap" : true,
 		"TriggerScripts" : [
 			"scripts/TriggerHelper.js",
-			"random/survivalofthefittest_triggers.js"
+			"random/polar_sea_triggers.js"
 		]
 	}
 }
