@@ -132,7 +132,8 @@ for (var i = 0; i < numPlayers; ++i)
 		var aZ = round(fz + aDist * sin(aAngle));
 		var group = new SimpleGroup(
 			[new SimpleObject(oChicken, 5,5, 0,2)],
-			true, clBaseResource, aX, aZ
+			true, clBaseResource, aX, aZ,
+		avoidClasses(clBaseResource, 4)
 		);
 		createObjectGroup(group, 0);
 	}
@@ -144,7 +145,8 @@ for (var i = 0; i < numPlayers; ++i)
 	var bbZ = round(fz + bbDist * sin(bbAngle));
 	group = new SimpleGroup(
 		[new SimpleObject(oBerryBush, 5,5, 0,3)],
-		true, clBaseResource, bbX, bbZ
+		true, clBaseResource, bbX, bbZ,
+		avoidClasses(clBaseResource, 4)
 	);
 	createObjectGroup(group, 0);
 
@@ -159,7 +161,8 @@ for (var i = 0; i < numPlayers; ++i)
 	var mZ = round(fz + mDist * sin(mAngle));
 	group = new SimpleGroup(
 		[new SimpleObject(oMetalLarge, 1,1, 0,0)],
-		true, clBaseResource, mX, mZ
+		true, clBaseResource, mX, mZ,
+		avoidClasses(clBaseResource, 4)
 	);
 	createObjectGroup(group, 0);
 
@@ -169,7 +172,8 @@ for (var i = 0; i < numPlayers; ++i)
 	mZ = round(fz + mDist * sin(mAngle));
 	group = new SimpleGroup(
 		[new SimpleObject(oStoneLarge, 1,1, 0,2)],
-		true, clBaseResource, mX, mZ
+		true, clBaseResource, mX, mZ,
+		avoidClasses(clBaseResource, 4)
 	);
 	createObjectGroup(group, 0);
 
@@ -181,7 +185,7 @@ for (var i = 0; i < numPlayers; ++i)
 	group = new SimpleGroup(
 		[new SimpleObject(oWood, 14,14, 0,3)],
 		true, clBaseResource, bbX, bbZ,
-		avoidClasses(clBaseResource, 4)
+		avoidClasses(clBaseResource, 5)
 	);
 	createObjectGroup(group, 0);
 };
@@ -256,12 +260,9 @@ createObjectGroups(group, 0,
 	scaleByMapSize(40, 140), 100
 );
 
-
-group = new SimpleGroup( [new SimpleObject("special/trigger_point_C", 1,1, 0,0)], true, clWolf);
-createObjectGroups(group, 0,
-	stayClasses(clPlayer, 5),
-	scaleByMapSize(40, 140), 100
-);
+var ax = round(fractionToTiles(playerX[i]));
+var az = round(fractionToTiles(playerZ[i]));
+placeObject(ax, az, "special/trigger_point_A", id, PI);
 
 // create bumps
 createBumps(avoidClasses(clWater, 2, clPlayer, 20));
