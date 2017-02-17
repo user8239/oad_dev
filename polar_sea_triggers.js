@@ -1,45 +1,60 @@
-Trigger.prototype.SpawnAndAttack = function()
-{
-	var rand = Math.random();
-	// randomize spawn points
-	var spawnPoint = rand > 0.5 ? "B" : "C";
-	var intruders = TriggerHelper.SpawnUnitsFromTriggerPoints(spawnPoint, "gaia/fauna_wolf_snow", this.attackSize, 0);
+/**
+ * This unit will be spawned
+ */
+var attackerTemplate = "gaia/fauna_wolf_snow";
+attackerTemplate = "gaia/fauna_elephant_north_african";
 
-	for (var origin in intruders)
-	{
-		var playerID = TriggerHelper.GetOwner(+origin);
-		var cmd = null;
-		for (var target of this.GetTriggerPoints("A"))
+/**
+ * Number of attackers per wave
+ */
+var waveSize = 1;
+
+/**
+ * Minutes between each wave
+ */
+var waveTime = 2;
+
+Trigger.prototype.MoveToTriggerPoint = function(triggerPoint, owner)
+{
+	let position;
+	for (let target of this.GetTriggerPoints("A"))
+		if (owner == undefined || TriggerHelper.GetOwner(target) == owner)
 		{
-			if (TriggerHelper.GetOwner(target) != playerID)
-				continue;
-			var cmpPosition = Engine.QueryInterface(target, IID_Position);
-			if (!cmpPosition || !cmpPosition.IsInWorld)
-				continue;
-			// store the x and z coordinates in the command
-			cmd = cmpPosition.GetPosition();
+			position = Engine.QueryInterface(target, IID_Position).GetPosition();
 			break;
 		}
-		if (!cmd)
-			continue;
-		cmd.type = "attack-walk";
-		cmd.entities = intruders[origin];
-		cmd.queued = true;
-		cmd.targetClasses = { "attack": ["Unit", "Structure"] };
-		ProcessCommand(0, cmd);
+
+	if (!position)
+	{
+		warn("Could not find suitable trigger point!");
+		return;
 	}
 
-	// enlarge the attack time and size
-	// multiply with a number between 1 and 3
-	rand = Math.random() * 2 + 1;
-	this.attackTime *= rand;
-	this.attackSize = Math.round(this.attackSize * rand);
-	this.DoAfterDelay(this.attackTime, "SpawnAndAttack", {});
+	ProcessCommand(0, {
+		"type": "attack-walk",
+		"entities": attackers[ent],
+		"queued": true,
+		"targetClasses": { "attack": ["Unit"] }
+	});
+}
+
+Trigger.prototype.SpawnAndAttack = function()
+{
+	let attackers = TriggerHelper.SpawnUnitsFromTriggerPoints("A", attackerTemplate, waveSize, 0);
+
+	for (let triggerPoint in attackers)
+	{
+		// Move to a random trigger point
+		//this.MoveToTriggerPoint(attackers, "A", undefined)
+
+		// Move to the player base
+		//this.MoveToTriggerPoint(attackers, "B", TriggerHelper.GetOwner(+attackers[triggerPoint]))
+	}
+
+	this.DoAfterDelay(waveTime * 60 * 1000, "SpawnAndAttack", {});
 };
 
 {
 	let cmpTrigger = Engine.QueryInterface(SYSTEM_ENTITY, IID_Trigger);
-	cmpTrigger.attackSize = 1; // attack with 1 soldier
-	cmpTrigger.attackTime = 60 * 1000; // attack in 1 minute
-	cmpTrigger.DoAfterDelay(cmpTrigger.attackTime, "SpawnAndAttack", {});
+	//cmpTrigger.SpawnAndAttack();
 }
