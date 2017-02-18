@@ -49,6 +49,7 @@ var clWater = createTileClass();
 var clDirt = createTileClass();
 var clRock = createTileClass();
 var clMetal = createTileClass();
+var clHill = createTileClass();
 var clFood = createTileClass();
 var clBaseResource = createTileClass();
 var clWolf = createTileClass();
@@ -219,6 +220,22 @@ for (let i = 0; i < numLakes ; ++i)
 createBumps(avoidClasses(clWater, 2, clPlayer, 20));
 RMS.SetProgress(60);
 
+// create hills
+	createHills([tPrimary, tPrimary, tSecondary]),
+	avoidClasses(clPlayer, 20, clHill, 35, clWater, 2),
+	clHill, scaleByMapSize(1, 240);
+
+RMS.SetProgress(30);
+
+var lakeAreas = [];
+var playerConstraint = new AvoidTileClassConstraint(clPlayer, 20);
+var waterConstraint = new AvoidTileClassConstraint(clWater, 8);
+
+for (var x = 0; x < mapSize; ++x)
+	for (var z = 0; z < mapSize; ++z)
+		if (playerConstraint.allows(x, z) && waterConstraint.allows(x, z))
+			lakeAreas.push([x, z]);
+
 log("Creating dirt patches...");
 createLayeredPatches(
 	[scaleByMapSize(3, 6), scaleByMapSize(5, 10), scaleByMapSize(8, 21)],
@@ -241,7 +258,7 @@ createMines(
   [new SimpleObject(oStoneSmall, 0,2, 0,4), new SimpleObject(oStoneLarge, 1,1, 0,4)],
   [new SimpleObject(oStoneSmall, 2,5, 1,3)]
  ],
- avoidClasses(clWater, 3, clPlayer, 20, clRock, 18)
+ avoidClasses(clWater, 3, clPlayer, 20, clRock, 18, clHill, 5)
 );
 
 log("Creating metal mines...");
@@ -249,7 +266,7 @@ createMines(
 	[
 		[new SimpleObject(oMetalLarge, 1,1, 0,4)]
 	],
-		avoidClasses(clWater, 3, clPlayer, 20, clMetal, 18, clRock, 5),
+		avoidClasses(clWater, 3, clPlayer, 20, clMetal, 18, clRock, 5, clHill, 5),
 		clMetal
 );
 RMS.SetProgress(70);
@@ -289,9 +306,9 @@ createFood(
 	[
 		3 * numPlayers,
 		3 * numPlayers,
-		4 * numPlayers,
+		4 * numPlayers
 	],
-	avoidClasses(clFood, 16, clWater, 10, clMetal 4, clRock, 4)
+	avoidClasses(clFood, 16, clWater, 10, clMetal, 4, clRock, 4, clHill, 5)
 );
 
 createFood(
@@ -303,7 +320,7 @@ createFood(
 		3 * numPlayers,
 		3 * numPlayers
 	],
-	[avoidClasses(clFood, 20), stayClasses(clWater, 6)]
+	[avoidClasses(clFood, 20, clHill, 5), stayClasses(clWater, 6)]
 );
 
 createFood(
@@ -313,7 +330,7 @@ createFood(
 	[
 		15 * numPlayers
 	],
-	[avoidClasses(clFood, 12), stayClasses(clWater, 6)]
+	[avoidClasses(clFood, 12, clHill, 5), stayClasses(clWater, 6)]
 );
 RMS.SetProgress(85);
 
