@@ -33,9 +33,9 @@
 		</Postproc>
 	</Environment>
 	<Camera>
-		<Position x="880.633" y="286.646" z="1349.94"/>
-		<Rotation angle="-2.98787"/>
-		<Declination angle="0.610866"/>
+		<Position x="940.065" y="165.835" z="1006.59"/>
+		<Rotation angle="-1.54649"/>
+		<Declination angle="0.610865"/>
 	</Camera>
 	<ScriptSettings><![CDATA[
 {
@@ -23466,14 +23466,6 @@
 			<Orientation y="2.08356"/>
 			<Actor seed="8073"/>
 		</Entity>
-		<Entity uid="6162">
-			<Template>structures/athen_wall_medium</Template>
-			<Player>0</Player>
-			<Position x="274.51673" z="774.43134"/>
-			<Orientation y="-4.23229"/>
-			<Obstruction group="6047" group2="6098"/>
-			<Actor seed="33729"/>
-		</Entity>
 		<Entity uid="6163">
 			<Template>structures/athen_wall_long</Template>
 			<Player>0</Player>
@@ -23632,12 +23624,6 @@
 			<Orientation y="2.73961"/>
 			<Obstruction group="6172" group2="6174"/>
 			<Actor seed="23338"/>
-		</Entity>
-		<Entity uid="6277">
-			<Template>units/maur_champion_maiden</Template>
-			<Player>2</Player>
-			<Position x="1482.36207" z="859.11316"/>
-			<Orientation y="-1.51351"/>
 		</Entity>
 		<Entity uid="6281">
 			<Template>units/gaul_champion_infantry</Template>
@@ -25484,6 +25470,96 @@
 			<Orientation y="2.35622"/>
 			<Obstruction group="4391" group2="4393"/>
 			<Actor seed="63181"/>
+		</Entity>
+		<Entity uid="6625">
+			<Template>structures/athen_wall_long</Template>
+			<Player>0</Player>
+			<Position x="672.63569" z="1170.10743"/>
+			<Orientation y="2.35621"/>
+			<Obstruction group="6177" group2="6633"/>
+			<Actor seed="4553"/>
+		</Entity>
+		<Entity uid="6627">
+			<Template>structures/athen_wall_long</Template>
+			<Player>0</Player>
+			<Position x="605.87903" z="1132.16016"/>
+			<Orientation y="2.35621"/>
+			<Obstruction group="4500" group2="6634"/>
+			<Actor seed="20430"/>
+		</Entity>
+		<Entity uid="6628">
+			<Template>structures/athen_wall_long</Template>
+			<Player>0</Player>
+			<Position x="621.89014" z="1162.03663"/>
+			<Orientation y="-1.44187"/>
+			<Obstruction group="6634" group2="6635"/>
+			<Actor seed="14641"/>
+		</Entity>
+		<Entity uid="6629">
+			<Template>structures/athen_wall_medium</Template>
+			<Player>0</Player>
+			<Position x="637.37525" z="1180.60962"/>
+			<Orientation y="-0.16318"/>
+			<Obstruction group="6635" group2="6636"/>
+			<Actor seed="45067"/>
+		</Entity>
+		<Entity uid="6630">
+			<Template>structures/athen_wall_medium</Template>
+			<Player>0</Player>
+			<Position x="651.95405" z="1149.4286"/>
+			<Orientation y="2.35621"/>
+			<Obstruction group="6633" group2="6632"/>
+			<Actor seed="23310"/>
+		</Entity>
+		<Entity uid="6631">
+			<Template>structures/athen_wall_medium</Template>
+			<Player>0</Player>
+			<Position x="635.89289" z="1132.2776"/>
+			<Orientation y="2.35621"/>
+			<Obstruction group="6632" group2="6637"/>
+			<Actor seed="33519"/>
+		</Entity>
+		<Entity uid="6632">
+			<Template>structures/athen_wall_tower</Template>
+			<Player>0</Player>
+			<Position x="644.42975" z="1141.35315"/>
+			<Orientation y="2.35621"/>
+			<Actor seed="20431"/>
+		</Entity>
+		<Entity uid="6633">
+			<Template>structures/athen_wall_tower</Template>
+			<Player>0</Player>
+			<Position x="660.98761" z="1157.93775"/>
+			<Orientation y="2.35621"/>
+			<Actor seed="40634"/>
+		</Entity>
+		<Entity uid="6634">
+			<Template>structures/athen_wall_tower</Template>
+			<Player>0</Player>
+			<Position x="619.47217" z="1145.18531"/>
+			<Orientation y="2.35621"/>
+			<Actor seed="55581"/>
+		</Entity>
+		<Entity uid="6635">
+			<Template>structures/athen_wall_tower</Template>
+			<Player>0</Player>
+			<Position x="624.61786" z="1178.5044"/>
+			<Orientation y="-1.73507"/>
+			<Actor seed="30110"/>
+		</Entity>
+		<Entity uid="6636">
+			<Template>structures/athen_wall_tower</Template>
+			<Player>0</Player>
+			<Position x="650.0171" z="1183.94434"/>
+			<Orientation y="1.34736"/>
+			<Actor seed="29253"/>
+		</Entity>
+		<Entity uid="6637">
+			<Template>structures/athen_wall_tower</Template>
+			<Player>0</Player>
+			<Position x="628.02216" z="1125.12098"/>
+			<Orientation y="2.35621"/>
+			<Actor seed="53629"/>
 		</Entity>
 	</Entities>
 	<Paths/>
