@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="other/special_catafalque">
+  <Auras datatype="tokens">mace_catafalque</Auras>
+  <Identity>
+    <Civ>mace</Civ>
+    <SpecificName>Philip V</SpecificName>
+    <Tooltip>TODO</Tooltip>
+  </Identity>
+<ResourceTrickle>
+    <Rates>
+      <metal>1.0</metal>
+    </Rates>
+    <Interval>1000</Interval>
+</ResourceTrickle>
+</Entity>
