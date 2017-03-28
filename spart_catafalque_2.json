@@ -1,0 +1,10 @@
+{
+	"type": "range",
+	"radius": 80,
+	"affects": ["Worker"],
+	"modifications": [
+		{"value": "ResourceGatherer/Rates/metal.ore", "multiply": 1.1}
+	],
+	"auraName": "Iron Pelanors",
+	"auraDescription": "To further support equality, Lycurgus forbade the use of gold and silver, instead introducing new iron money called pellanors. +10% metal mining rate for nearby workers.",
+}

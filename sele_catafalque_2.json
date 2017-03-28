@@ -1,0 +1,10 @@
+{
+	"type": "global",
+	"affects": ["Player"],
+	"modifications": [
+		{ "value": "Player/MaxPopulation", "multiplier": 1.05 }
+	],
+	"auraName": "Immigration",
+	"auraDescription": "Antiochus encouraged Greek immigration to his realm and established many new cities in Asia Minor to serve as counterweights to the Gauls. +5% maximum population.",
+	"overlayIcon": "art/textures/ui/session/auras/"
+}
