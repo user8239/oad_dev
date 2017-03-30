@@ -1,0 +1,10 @@
+{
+	"type": "range",
+	"radius": 60,
+	"affects": ["Human"],
+	"modifications": [
+		{ "value": "Promotion/RequiredXp", "multiple": 0.75 }
+	],
+	"auraName": "Ambush Slaughter",
+	"auraDescription": "In his war with the Romans, Ambiorix realized the futility of open warfare and instead resorted to ambush tactics. The Gauls quickly learned where and when to make surprise attacks on the Romans. Units promote 25% faster."
+}
