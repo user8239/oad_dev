@@ -2,9 +2,9 @@
 	"type": "global",
 	"affects": ["Human", "Mechanical"],
 	"modifications": [
-		{ "value": "Armour/Pierce", "multiplier": 1.1 },
-		{ "value": "Armour/Hack", "multiplier": 1.1 },
-		{ "value": "Armour/Crush", "multiplier": 1.1 }
+		{ "value": "Armour/Pierce", "multiply": 1.1 },
+		{ "value": "Armour/Hack", "multiply": 1.1 },
+		{ "value": "Armour/Crush", "multiply": 1.1 }
 	],
 	"auraName": "Founder and Defender of the Republic Aura",
 	"auraDescription": "Brutus was one of the key figures in the overthrow of the kingship and the founding of the Roman Republic. Later, as Consul he led a Roman army to victory against the Etruscan King Tarquinius who sought to retake the throne. +10% armour for all units and sieges."

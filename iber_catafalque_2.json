@@ -1,0 +1,9 @@
+{
+	"type": "global",
+	"affects": ["Soldier"],
+	"modifications": [
+		{"value": "Cost/BuildTime", "multiply": 0.85},
+	],
+	"auraName": "Saver of Lives",
+	"auraDescription": "Following the fall of Indibil in battle, Mandonius led the survivors to safety. +15% movement speed for all soldiers."
+}

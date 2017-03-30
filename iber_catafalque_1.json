@@ -1,0 +1,9 @@
+{
+	"type": "global",
+	"affects": ["Mercenary"],
+	"modifications": [
+		{ "value": "Cost/Resources/metal", "multiply": 0.9 }
+	],
+	"auraName": "Mercenary Commander",
+	"auraDescription": "Along with his brother Indibil, Mandonius commanded the Iberian mercenaries that took part in the Punic Wars. -10% metal cost for all mercenaries."
+}

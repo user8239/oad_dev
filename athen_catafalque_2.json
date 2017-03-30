@@ -8,6 +8,5 @@
 		{ "value": "ProductionQueue/TechCostMultiplier/stone", "multiply": 0.9 }
 	],
 	"auraName": "Economic Reforms",
-	"auraDescription": "Solon brought in a new system of weights and measures, fathers were encouraged to find trades for their sons.",
-	"stackable": true
+	"auraDescription": "Solon brought in a new system of weights and measures, fathers were encouraged to find trades for their sons."
 }

@@ -8,6 +8,5 @@
 		{ "value": "ProductionQueue/TechCostMultiplier/stone", "multiply": 0.9 }
 	],
 	"auraName": "Great Librarian",
-	"auraDescription": "Continuing his predecessors' work on the Great Library at Alexandria, he seized every book brought to Alexandria, thus leaving to his people a vast amount of hoarded wisdom. -10% resource cost for all technologies.",
-	"stackable": true
+	"auraDescription": "Continuing his predecessors' work on the Great Library at Alexandria, he seized every book brought to Alexandria, thus leaving to his people a vast amount of hoarded wisdom. -10% resource cost for all technologies."
 }
