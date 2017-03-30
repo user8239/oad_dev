@@ -6,5 +6,7 @@
 		{ "value": "ResourceGatherer/BaseSpeed", "multiply": 1.1 }
 	],
 	"auraName": "Economic Reforms",
-	"auraDescription": "Solon instituted several economic reforms encouraging commerce and agriculture. +10% gather rate of nearby workers."
+	"auraDescription": "Solon instituted several economic reforms encouraging commerce and agriculture. +10% gather rate of nearby workers.",
+	"overlayIcon": "art/textures/ui/session/auras/buildgather_bonus.png"
+
 }

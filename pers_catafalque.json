@@ -9,5 +9,6 @@
 		{ "value": "Health/Max", "multiply": 1.05 }
 	],
 	"auraName": "Great Builder",
-	"auraDescription": "Throughout his reign, much of Artaxerxes' wealth was spent on building projects. He restored the Palace of Darius I at Susa, and restored the ancient city of Ecbatana. All buildings +5% health and -5% resource cost."
+	"auraDescription": "Throughout his reign, much of Artaxerxes' wealth was spent on building projects. He restored the Palace of Darius I at Susa, and restored the ancient city of Ecbatana. All buildings +5% health and -5% resource cost.",
+	"overlayIcon": "art/textures/ui/session/auras/health_bonus.png"
 }

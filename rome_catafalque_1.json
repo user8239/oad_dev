@@ -6,5 +6,7 @@
 		{ "value": "ResourceGatherer/BaseSpeed", "multiply": 1.1 }
 	],
 	"auraName": "Avenger of Lucretia",
-	"auraDescription": "After the rape of Lucretia by the son of the king Tarquinius Superbus and her subsequent suicide, Brutus vowed to avenge her and overthrow the kingship. Female Citizens cost 20% cheaper and work 10% faster."
+	"auraDescription": "After the rape of Lucretia by the son of the king Tarquinius Superbus and her subsequent suicide, Brutus vowed to avenge her and overthrow the kingship. Female Citizens cost 20% cheaper and work 10% faster.",
+	"overlayIcon": "art/textures/ui/session/auras/buildgather_bonus.png"
 }
+
