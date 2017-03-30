@@ -1,6 +1,6 @@
 {
 	"type": "global",
-	"affects": ["Mercenary", "CitizenSoldier"],
+	"affects": ["Mercenary+CitizenSoldier"],
 	"affectedPlayers": ["Ally"],
 	"modifications": [
 		{ "value": "Cost/Resources/metal", "multiply": 0.75 }
