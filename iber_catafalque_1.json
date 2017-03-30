@@ -1,0 +1,10 @@
+{
+	"type": "global",
+	"affects": ["Mercenary", "CitizenSoldier"],
+	"affectedPlayers": ["Ally"],
+	"modifications": [
+		{ "value": "Cost/Resources/metal", "multiply": 0.9 }
+	],
+	"auraName": "Commander of the Troops",
+	"auraDescription": "Along with his brother Indibil, Mandonius commanded the Iberian recruits and mercenaries that took part in the Punic Wars. -10% metal cost for all citizen soldiers or mercenaries for the owner's team."
+}
