@@ -1,0 +1,11 @@
+{
+	"type": "global",
+	"affects": ["Structure"],
+	"modifications": [
+		{ "value": "TerritoryInfluence/Radius", "multiply": 1.2 },
+ 		{ "value": "Attack/Capture/Value", "multiply": 1.15 }
+	],
+	"auraDescription": "Son of Chandragupta Maurya, Bindusara consolidated the Empire and is claimed to have conquered lands to the south. +20% territory influence and +15% unit capture rate.",
+	"auraName": "Consolidator of the Empire",
+	"overlayIcon": "art/textures/ui/session/auras/build_bonus.png"
+}

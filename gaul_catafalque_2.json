@@ -1,0 +1,11 @@
+{
+	"type": "global",
+	"affects": ["Human"],
+	"modifications": [
+		{ "value": "ResourceGatherer/Rates/food.grain", "multiply": 0.9 }
+
+	],
+	"auraName": "Tribute to Rome",
+	"auraDescription": ""
+}
+
