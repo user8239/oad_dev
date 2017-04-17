@@ -13,6 +13,7 @@ const tWater = "savanna_mud_a";
 const tCityTile = "savanna_tile_a";
 
 // gaia entities
+const oBush = "gaia/flora_bush_temperate";
 const oBaobab = "gaia/flora_tree_baobab";
 const oToona = "gaia/flora_tree_toona";
 const oBerryBush = "gaia/flora_bush_berry";
@@ -315,7 +316,8 @@ createObjectGroups(group, 0,
 
 RMS.SetProgress(60);
 
-// create small decorative rocks
+//create decorative rocks
+
 log("Creating small decorative rocks...");
 group = new SimpleGroup(
 	[new SimpleObject(aRockMedium, 1,3, 0,1)],
@@ -329,7 +331,6 @@ createObjectGroups(
 
 RMS.SetProgress(65);
 
-// create large decorative rocks
 log("Creating large decorative rocks...");
 group = new SimpleGroup(
 	[new SimpleObject(aRockLarge, 1,2, 0,1), new SimpleObject(aRockMedium, 1,3, 0,2)],
@@ -344,7 +345,7 @@ createObjectGroups(
 RMS.SetProgress(70);
 
 
-// create lions
+// create wildlife
 log("Creating lions...");
 group = new SimpleGroup(
 	[new SimpleObject(oLion, 0,1, 0,4), new SimpleObject(oLioness, 2,3, 0,4)],
@@ -445,7 +446,7 @@ RMS.SetProgress(80);
 
 
 log("Creating straggler trees...");
-var types = [oToona, oBaobab];	// some variation
+var types = [oToona, oBaobab, oBush];	// some variation
 var num = floor(numStragglers / types.length);
 for (var i = 0; i < types.length; ++i)
 {

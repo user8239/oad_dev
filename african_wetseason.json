@@ -7,6 +7,10 @@
 		"BaseHeight" : 3,
 		"Keywords": ["new"],
 		"CircularMap" : true,
-		"Preview" : " "
+		"Preview" : "african_wetseason.png",
+		"TriggerScripts" : [
+			"scripts/TriggerHelper.js",
+			"random/african_wetseason_triggers.js"
+		]
 	}
 }
