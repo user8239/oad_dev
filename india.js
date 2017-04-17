@@ -18,6 +18,7 @@ const oBerryBush = "gaia/flora_bush_berry";
 const oChicken = "gaia/fauna_chicken";
 const oRabbit = "gaia/fauna_rabbit";
 const oTiger = "gaia/fauna_tiger";
+const oCrocodile = "gaia/fauna_crocodile";
 const oFish = "gaia/fauna_fish";
 const oElephant = "gaia/fauna_elephant_asian";
 const oBoar = "gaia/fauna_boar";
@@ -35,17 +36,17 @@ function placeStoneMineFormation(x, z)
 	var placer = new ChainPlacer(1, 2, 2, 1, x, z, undefined, [5]);
 	var painter = new TerrainPainter(tDirt4);
 	createArea(placer, painter, null);
-
+	
 	var bbAngle = randFloat(0, TWO_PI);
 	const bbDist = 2.5;
-
+	
 	for (var i = 0; i < 8; ++i)
 	{
 		var bbX = round(x + (bbDist + randFloat(0,1)) * cos(bbAngle));
 		var bbZ = round(z + (bbDist + randFloat(0,1)) * sin(bbAngle));
-
-		placeObject(bbX, bbZ, oStoneSmall, 0, randFloat(0, TWO_PI));
-
+		
+		placeObject(bbX, bbZ, oStoneSmall, 0, randFloat(0, TWO_PI)); 
+	
 		bbAngle += PI12;
 	}
 }
@@ -101,12 +102,12 @@ for (var i = 0; i < numPlayers; i++)
 {
 	var id = playerIDs[i];
 	log("Creating base for player " + id + "...");
-
+	
 	// some constants
 	var radius = scaleByMapSize(15,25);
 	var cliffRadius = 2;
 	var elevation = 20;
-
+	
 	// get the x and z in tiles
 	var fx = fractionToTiles(playerX[i]);
 	var fz = fractionToTiles(playerZ[i]);
@@ -117,10 +118,10 @@ for (var i = 0; i < numPlayers; i++)
 	addToClass(ix, iz+5, clPlayer);
 	addToClass(ix-5, iz, clPlayer);
 	addToClass(ix, iz-5, clPlayer);
-
+	
 	// create starting units
 	placeCivDefaultEntities(fx, fz, id);
-
+	
 	// create animals
 	for (var j = 0; j < 2; ++j)
 	{
@@ -134,7 +135,7 @@ for (var i = 0; i < numPlayers; i++)
 		);
 		createObjectGroup(group, 0);
 	}
-
+	
 	// create berry bushes
 	var bbAngle = randFloat(0, TWO_PI);
 	var bbDist = 12;
@@ -145,7 +146,7 @@ for (var i = 0; i < numPlayers; i++)
 		true, clBaseResource, bbX, bbZ
 	);
 	createObjectGroup(group, 0);
-
+	
 	// create metal mine
 	var mAngle = bbAngle;
 	while(abs(mAngle - bbAngle) < PI/3)
@@ -160,7 +161,7 @@ for (var i = 0; i < numPlayers; i++)
 		true, clBaseResource, mX, mZ
 	);
 	createObjectGroup(group, 0);
-
+	
 	// create stone mines
 	mAngle += randFloat(PI/8, PI/4);
 	mX = round(fx + mDist * cos(mAngle));
@@ -172,7 +173,7 @@ for (var i = 0; i < numPlayers; i++)
 	var placer = new ClumpPlacer(PI*cityRadius*cityRadius, 0.6, 0.3, 10, ix, iz);
 	var painter = new TerrainPainter(tCityTiles);
 	createArea(placer, painter, null);
-
+	
 	var hillSize = PI * radius * radius;
 	// create starting trees
 	var num = floor(hillSize / 300);
@@ -185,10 +186,21 @@ for (var i = 0; i < numPlayers; i++)
 		false, clBaseResource, tX, tZ
 	);
 	createObjectGroup(group, 0, avoidClasses(clBaseResource,2));
-
+	
 }
 
 RMS.SetProgress(20);
+
+// create bumps
+log("Creating bumps...");
+placer = new ClumpPlacer(scaleByMapSize(20, 50), 0.3, 0.06, 1);
+painter = new SmoothElevationPainter(ELEVATION_MODIFY, 2, 2);
+createAreas(
+	placer,
+	painter,
+	avoidClasses(clPlayer, 13),
+	scaleByMapSize(300, 800)
+);
 
 // create big patches
 log("Creating big patches...");
@@ -256,7 +268,7 @@ terrainPainter = new LayeredPainter(
 elevationPainter = new SmoothElevationPainter(ELEVATION_SET, 3, 4);
 createAreas(
 	placer,
-	[terrainPainter, elevationPainter, unPaintClass(clWater)],
+	[terrainPainter, elevationPainter, unPaintClass(clWater)], 
 	borderClasses(clWater, 4, 7),
 	scaleByMapSize(12, 130) * 2, 150
 );
@@ -311,7 +323,8 @@ createObjectGroups(
 
 RMS.SetProgress(70);
 
-// create boars
+// create wildlife
+
 log("Creating boars...");
 group = new SimpleGroup(
 	[new SimpleObject(oBoar, 1,2, 0,4)],
@@ -322,7 +335,6 @@ createObjectGroups(group, 0,
 	scaleByMapSize(4,12), 50
 );
 
-// create tigers
 log("Creating tigers...");
 group = new SimpleGroup(
 	[new SimpleObject(oTiger, 2,2, 0,4)],
@@ -333,7 +345,16 @@ createObjectGroups(group, 0,
 	scaleByMapSize(4,12), 50
 );
 
-/// create elephants
+log("Creating crocodiles...");
+group = new SimpleGroup(
+	[new SimpleObject(oCrocodile, 2,4, 0,4)],
+	true, clFood
+);
+createObjectGroups(group, 0,
+	stayClasses(clWater, 1),
+	scaleByMapSize(4,12), 50
+);
+
 log("Creating elephants...");
 group = new SimpleGroup(
 	[new SimpleObject(oElephant, 2,4, 0,4)],
@@ -344,8 +365,7 @@ createObjectGroups(group, 0,
 	scaleByMapSize(4,12), 50
 );
 
-/// create rabbits
-log("Creating elephants...");
+log("Creating rabbits...");
 group = new SimpleGroup(
 	[new SimpleObject(oRabbit, 5,6, 0,4)],
 	true, clFood
@@ -360,7 +380,7 @@ createFood
 (
  [
   [new SimpleObject(oFish, 2,3, 0,2)]
- ],
+ ], 
  [
   25 * numPlayers
  ],
