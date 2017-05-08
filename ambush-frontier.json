@@ -1,12 +1,11 @@
 {
-	"settings" : {
-		"Name" : "Ambush-Frontier",
-		"Script" : "ambush-frontier.js",
-		"Description" : "Players start situated on hilly terrain with occasional bluffs and mountains. Resources and animals abound on the map, and in some cases water might be present also. ",
-		"BaseTerrain" : ["medit_sea_depths"],
-		"BaseHeight" : 2,
-		"Keywords": ["new"],
-		"Preview" : "ambush-frontier.png",
-		"CircularMap" : true
-	}
+  "settings" : {
+    "Name" : "Ambush-Frontier",
+    "Script" : "ambush-frontier.js",
+    "Description" : "Players start situated on hilly terrain with occasional bluffs and mountains. Resources and animals abound on the map, and in some cases water might be present also. ",
+    "BaseTerrain" : ["medit_sea_depths"],
+    "BaseHeight" : -1,
+	    "Preview" : "ambush-frontier.png",
+    "CircularMap" : true
+  }
 }

@@ -1,12 +1,11 @@
 {
-	"settings" : {
-		"Name" : "Artic Tundra",
-		"Script" : "artic_tundra.js",
-		"Description" : "A map almost barren of wood, boasting a number of large lakes.",
-		"BaseTerrain" : ["medit_sea_depths"],
-		"BaseHeight" : 2,
-		"Preview" : "artic_tundra.png",
-		"Keywords": ["new"],
-		"CircularMap" : true
-	}
+  "settings" : {
+    "Name" : "Artic Tundra",
+    "Script" : "artic_tundra.js",
+    "Description" : "A map almost barren of wood, boasting a number of large lakes.",
+    "BaseTerrain" : ["medit_sea_depths"],
+    "BaseHeight" : 2,
+    "Preview" : "artic_tundra.png",
+    "CircularMap" : true
+  }
 }
