@@ -1,0 +1,8 @@
+{
+	"autoResearch": true,
+	"icon": "upgrade_advanced.png",
+	"tooltip": "Advanced mercenaries train slower.",
+	"requirements": { "tech": "promote_mercenary_unit" },
+	"modifications": [{ "value": "Cost/BuildTime", "multiply": 1.20 }],
+	"affects": ["Mercenary Advanced"]
+}
